@@ -7,6 +7,12 @@ gem "devise"
 
 gem "sidekiq"
 
+gem "ffi"
+
+group :development, :test do
+  gem "rspec-rails"
+end
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
 
