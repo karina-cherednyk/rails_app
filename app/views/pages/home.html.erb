@@ -1,0 +1,21 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+<button class="btn btn-primary">Test button </button>
+
+
+<% if current_user %>
+  <p> You are a  <%= current_user.role %> </p>
+  <p> Hello user <%= current_user.email %> </p>
+
+  <% if current_user.role == "seller" %>
+  <%= link_to "New Book", new_book_path %>
+  <% end %>
+  <%= button_to "View all books", books_path, method: :get %>
+  
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: "false" } %>
+  <% else %>
+  <p> You are not signed in!</p>
+  <%= link_to "Sign Up", new_user_registration_path %> </br>
+  <%= link_to "Log In", new_user_session_path %>
+
+<% end %>

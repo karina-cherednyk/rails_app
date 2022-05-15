@@ -1,0 +1,10 @@
+<h1>All books that you can see in our shop:</h1>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= link_to book.title, book %>  
+      <h3> <%= book.author %> </h3>
+      <p> <%= book.description %> </p>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,18 @@
+<h2> <%= @book.title %>       </h2>
+<h3> <%= @book.author %>      </h3>
+<p>  <%= @book.description %> </p>
+
+<ul>
+  <li><%= link_to "Edit", edit_book_path(@book) %></li>
+</ul>
+
+<%= link_to "All books", books_path %>
+
+
+<h2>Reviews</h2>
+<%= render @book.reviews %>
+
+<%if current_user %>
+<h2>Add a review:</h2>
+<%= render 'reviews/form' %>
+<% end %>
