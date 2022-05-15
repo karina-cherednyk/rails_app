@@ -8,6 +8,22 @@
 
 <%= link_to "All books", books_path %>
 
+<div>
+<h1> Write to seller of this book </h1>
+<%= form_for :data, url: book_path(@book)+"/send_email" do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :message %><br>
+    <%= form.text_area :message %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+  <% end %>
+</div>
 
 <h2>Reviews</h2>
 <%= render @book.reviews %>

@@ -9,6 +9,23 @@ class BooksController < ApplicationController
     def new 
       @book = Book.new
     end 
+
+    def send_email
+      @data = params[:data]
+      @book = Book.find(params[:book_id])
+      @to_user = User.find(@book.user_id)
+      MessageMailer.with(
+        from_user: current_user.email, 
+        to_user: @to_user.email, 
+        title: @data[:title],
+        message: @data[:message]
+        ).message_sent.deliver_later
+      # or perform later
+      # SendMailJob.perform_async(params[:data], params[:book_id] )
+      flash[:alert] = "Message succesfully sent!!"
+      redirect_to book_path(@book) 
+      
+    end 
   
     def create 
       @book = current_user.books.create(book_params)

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :books do 
     resources :reviews
   end
+  post "/books/:book_id/send_email", to: "books#send_email"
+
 
 end
 
