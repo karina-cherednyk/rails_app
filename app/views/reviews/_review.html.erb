@@ -1,20 +1,22 @@
-
-<p>
-    <strong>Title:</strong>
+<div class="card mb-4" >
+<div class="card-body">
+<h5 class="card-title">
+    <strong>Topic: </strong>
     <%= review.title %>
-</p>
+</h5>
 
-<p>
-    <strong>Text:</strong>
+<p class="card-text">
+    <strong>Text: </strong>
     <%= review.body %>
 </p>
 
+<%= button_to "Delete Review", [review.book, review],  method: :delete,  data: {
 
-<p>
-  <%= button_to "Delete Review", [review.book, review],  method: :delete,  data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  },
+  :class => "btn btn-danger stretched-link"
+  %>
 
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure?"
-              } %>
-</p>
-
+</div>
+</div>

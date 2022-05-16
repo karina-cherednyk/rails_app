@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  root 'pages#home'
+  root 'books#index'
   resources :books do 
     resources :reviews
   end

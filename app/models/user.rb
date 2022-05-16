@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
+
+  def seller
+    self.role == "seller"
+  end
 end
